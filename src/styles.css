@@ -1,0 +1,106 @@
+:root {
+    --imgGradients: grayscale(1);
+    --imgGradientsHover: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+ul {
+    list-style: none;
+}
+
+header {
+    display: grid;
+}
+
+
+header img {
+    position: absolute;
+    width: 1.5em;
+    margin: 20px;
+    height: auto;
+    z-index: 10;
+    cursor: pointer;
+}
+
+header nav {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    bottom: 1.5em;
+    justify-content: space-between;
+    z-index: 10;
+    padding: 20px;
+}
+
+header button {
+    padding: .5em;
+    width: 8em;
+    border: none;
+
+}
+
+main section:nth-of-type(1) {
+    position: absolute;
+}
+
+main section:nth-of-type(2) {
+    position: relative;
+}
+
+main section:nth-of-type(2) article {
+    position: absolute;
+}
+
+main section:nth-of-type(2) article p {
+    color: white;
+}
+
+main section:nth-of-type(2) article h3 {
+    color: white;
+}
+
+main section:nth-of-type(2) ul{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+    top: 0;
+}
+
+
+main section:nth-of-type(2) li img {
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+    filter: var(--imgGradients, grayscale(1));
+    transition: 1s;
+    z-index: 8;
+}
+
+
+
+
+main section:nth-of-type(2) ul:nth-of-type(2) {
+    position: absolute;
+    top: 0;
+    display: flex;
+    z-index: 13;
+
+}
+
+    /* Animating the images in the first <ul> on hover of the second <ul>'s li */
+    main section:nth-of-type(2) ul:nth-of-type(2) li:nth-of-type(1):hover ~ ul:nth-of-type(1) li:nth-of-type(1) img {
+        filter: var(--imgGradientsHover, none);
+    }
+    
+    
+
