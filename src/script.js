@@ -65,7 +65,7 @@ let x = document.documentElement.clientWidth * 0.5;
 let y = document.documentElement.clientHeight * 0.5;
 
 for (let i = 0; i < 100; i++){
-    balls.push(new Ball(x, y, Math.random() * 40 + Math.random() * 10));
+    balls.push(new Ball(x, y, Math.random() * 20 + Math.random() * 10));
 }
 
 function loop (){
@@ -99,6 +99,12 @@ loop();
 // inspiratie van https://www.youtube.com/watch?v=hoWjnidQOms&ab_channel=PothOnProgramming
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.imgingrid').forEach(function(tile) {
+    const imageUrl = tile.getAttribute('data-image');
+    // Remove redundant JavaScript that was handling the hover effect
+  });
+});
 
 document.querySelectorAll('.button').forEach(button => {
     button.addEventListener('mousemove', function(e) {
@@ -114,31 +120,19 @@ document.querySelectorAll('.button').forEach(button => {
     });
   });
   
-  let img1 = document.querySelector(".imgingrid1");
   
-  img1.onmousemove = function(e) {
-    e.target.style.setProperty('--x',(100*e.offsetX/e.target.offsetWidth)+'%');
-    e.target.style.setProperty('--y',(100*e.offsetY/e.target.offsetHeight)+'%'); 
-  }
+
+
+  const buttons = document.getElementsByClassName('button');
+  const section = document.querySelector('section:nth-of-type(1)');
+  let canvas = document.querySelector('canvas');
   
-  let img2 = document.querySelector(" .imgingrid2 ");
-  
-  img2.onmousemove = function(e) {
-    e.target.style.setProperty('--x',(100*e.offsetX/e.target.offsetWidth)+'%');
-    e.target.style.setProperty('--y',(100*e.offsetY/e.target.offsetHeight)+'%'); 
-  }
-  
-  let img3 = document.querySelector(".imgingrid3");
-  
-  img3.onmousemove = function(e) {
-    e.target.style.setProperty('--x',(100*e.offsetX/e.target.offsetWidth)+'%');
-    e.target.style.setProperty('--y',(100*e.offsetY/e.target.offsetHeight)+'%'); 
-  }
-  
-  let img4 = document.querySelector(".imgingrid4");
-  
-  img4.onmousemove = function(e) {
-    e.target.style.setProperty('--x',(100*e.offsetX/e.target.offsetWidth)+'%');
-    e.target.style.setProperty('--y',(100*e.offsetY/e.target.offsetHeight)+'%'); 
-  }
+  Array.from(buttons).forEach(button => {
+    button.addEventListener('click', () => {
+      console.log('clicked');
+      section.classList.toggle('begone');
+      canvas.classList.toggle('begone');
+    });
+  });
+
   
