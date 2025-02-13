@@ -162,3 +162,19 @@ closebutton.addEventListener('click', () => {
 });
 
 
+const openButton2 = document.querySelector('section:nth-of-type(2) article:nth-of-type(3) button');
+const closebutton2 = document.querySelector('section:nth-of-type(4) button');
+const sectionHead2 = document.querySelector('section:nth-of-type(4)');
+
+openButton2.addEventListener('click', () => { 
+console.log('clicked');
+sectionHead2.classList.add('comeback');
+});
+
+closebutton2.addEventListener('click', () => { 
+console.log('clicked');
+sectionHead2.classList.toggle('comeback');
+});
+
+
+
